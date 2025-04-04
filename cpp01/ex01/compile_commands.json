@@ -1,0 +1,53 @@
+[
+  {
+    "arguments": [
+      "/home/lgalloux/.nix-profile/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/home/lgalloux/Documents/cpp01/ex01",
+    "file": "/home/lgalloux/Documents/cpp01/ex01/src/main.cpp",
+    "output": "/home/lgalloux/Documents/cpp01/ex01/obj/main.o"
+  },
+  {
+    "arguments": [
+      "/home/lgalloux/.nix-profile/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "obj/Zombie.o",
+      "src/Zombie.cpp"
+    ],
+    "directory": "/home/lgalloux/Documents/cpp01/ex01",
+    "file": "/home/lgalloux/Documents/cpp01/ex01/src/Zombie.cpp",
+    "output": "/home/lgalloux/Documents/cpp01/ex01/obj/Zombie.o"
+  },
+  {
+    "arguments": [
+      "/home/lgalloux/.nix-profile/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "obj/zombieHorde.o",
+      "src/zombieHorde.cpp"
+    ],
+    "directory": "/home/lgalloux/Documents/cpp01/ex01",
+    "file": "/home/lgalloux/Documents/cpp01/ex01/src/zombieHorde.cpp",
+    "output": "/home/lgalloux/Documents/cpp01/ex01/obj/zombieHorde.o"
+  }
+]
