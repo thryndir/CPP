@@ -9,8 +9,8 @@ class Dog: public Animal
   public:
     explicit Dog(std::string type = "Dog");
     Dog(const Dog& dog);
-    ~Dog();
-    virtual Dog& operator=(const Dog& dog);
+    virtual ~Dog();
+    Dog& operator=(const Dog& dog);
     virtual void makeSound() const;
     private:
       Brain* brain;

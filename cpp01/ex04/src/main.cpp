@@ -24,7 +24,7 @@ int main(int argc, char **argv)
   std::string fileName(argv[1]);
   std::ifstream infile(fileName.c_str());
   std::ofstream outfile(fileName.append(".replace").c_str());
-  if (infile.is_open() && outfile.is_open())
+  if (infile.is_open() && outfile.is_open() && infile.peek() != EOF)
   {
     std::string input;
     while (std::getline(infile, input))
@@ -39,6 +39,8 @@ int main(int argc, char **argv)
   else
   {
     std::cerr << "Error when opening the file" << std::endl;
+    infile.close();
+    outfile.close();
     return (1);
   }
   return (0);

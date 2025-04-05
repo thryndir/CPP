@@ -4,7 +4,7 @@
 ClapTrap::ClapTrap(const std::string& name)
   :mName(name)
   ,mHitPoints(10)
-  ,mEnergyPoints(0)
+  ,mEnergyPoints(10)
   ,mAttackDamage(0)
 {
   std::cout << "(ClapTrap) construcor called\n";
