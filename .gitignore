@@ -1,0 +1,20 @@
+# Ignorer les fichiers compile_commands.json partout
+**/compile_commands.json
+
+# Ignorer les dossiers .cache partout
+**/.cache/
+
+# Fichiers compilés
+**/a.out
+**/obj/
+**/*.o
+**/*.a
+**/*.so
+**/*.dylib
+
+# Dossiers de build
+**/build/
+
+# Fichiers de système
+.DS_Store
+.vscode/
