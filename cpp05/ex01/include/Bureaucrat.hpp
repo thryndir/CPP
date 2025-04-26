@@ -4,20 +4,23 @@
 #include <exception>
 #include <string>
 
+class Form;
+
 class Bureaucrat
 {
   private:
     const std::string mName;
     int  mGrade;
   public:
-    Bureaucrat(const std::string& name, int grade);
+    Bureaucrat(const std::string& name, int grade = -1);
     Bureaucrat(const Bureaucrat& bureaucrat);
     Bureaucrat& operator=(const Bureaucrat& bureaucrat);
     ~Bureaucrat();
-    std::string getName(void);
-    int  getGrade(void);
-    void  increaseGrade();
-    void  decreaseGrade();
+    std::string getName(void) const;
+    int         getGrade(void) const;
+    void        increaseGrade();
+    void        decreaseGrade();
+    void        signForm(Form& form);
     class GradeTooHighException: public std::exception
     {
       virtual const char* what() const throw();
@@ -28,6 +31,6 @@ class Bureaucrat
     };
 };
 
-  std::ostream& operator<<(std::ostream& out, Bureaucrat bureaucrat);
+  std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
 
 #endif

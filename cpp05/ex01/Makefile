@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CPPFLAGS := -Iinclude
 SRC_DIR := src
 OBJ_DIR := obj
-SRCS := main.cpp Bureaucrat.cpp
+SRCS := main.cpp Bureaucrat.cpp Form.cpp
 OBJS := $(SRCS:.cpp=.o)
 VPATH := $(SRC_DIR):$(OBJ_DIR)
 OUTPUT_OPTION = -o $(OBJ_DIR)/$@

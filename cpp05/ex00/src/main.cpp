@@ -7,7 +7,8 @@ int main()
   try
   {
     Bureaucrat Michel("Michel", 149);
-    Bureaucrat Laure("Laure", 1);
+    Bureaucrat Laure("Laure", 4);
+    Michel = Laure;
     Michel.increaseGrade();
     Michel.decreaseGrade();
     Michel.increaseGrade();
