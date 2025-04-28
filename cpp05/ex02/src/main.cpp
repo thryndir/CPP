@@ -1,45 +1,36 @@
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <exception>
 #include <iostream>
 
 int main()
 {
-  const Animal* j = new Dog();
-  const Animal* i = new Cat();
-  std::cout << j->getType() << " " << std::endl;
-  std::cout << i->getType() << " " << std::endl;
-  i->makeSound(); //will output the cat sound!
-  j->makeSound();
-  const WrongAnimal* test = new WrongAnimal();
-  const WrongAnimal* test1 = new WrongCat();
-  std::cout << test->getType() << " " << std::endl;
-  std::cout << test1->getType() << " " << std::endl;
-  test->makeSound();
-  test1->makeSound();
-  delete j;
-  delete i;
-  delete test;
-  delete test1;
-  std::cout << std::endl;
-  const int n = 100;
-  Animal* animal[n];
-  for (int i = 0; i < n; i++)
+  try
   {
-    if (i % 2 == 0)
-      animal[i] = new Cat();
-    else
-      animal[i] = new Dog();
-    std::cout << std::endl;
+    Bureaucrat Michel("Michel", 149);
+    Bureaucrat Laure("Laure", 1);
+    Form       Alternance("Alternance", 145, 10);
+    Form       Stage("Stage", 3, 2);
+    Michel.signForm(Alternance);
+    Michel.increaseGrade();
+    Michel.increaseGrade();
+    Michel.increaseGrade();
+    Michel.increaseGrade();
+    Michel.increaseGrade();
+    Michel.increaseGrade();
+    Michel.increaseGrade();
+    Michel.increaseGrade();
+    Michel.increaseGrade();
+    Michel.signForm(Alternance);
+    Laure.signForm(Stage);
+    std::cout << Michel;
+    std::cout << Laure;
+    std::cout << Alternance;
+    std::cout << Stage;
   }
-  animal[0]->makeSound();
-  animal[1]->makeSound();
-  for (int i = 0; i < n; i++)
+  catch (const std::exception& e)
   {
-     delete animal[i];
-     std::cout << std::endl;
+    std::cout << e.what();
   }
   return 0;
 }
