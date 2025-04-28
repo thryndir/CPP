@@ -1,4 +1,5 @@
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 
 Form::Form(const std::string& name, int signLevel, int execLevel, bool approved)
@@ -78,6 +79,21 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::GradeTooLowException::what() const throw()
 {
   return ("Grade too low\n");
+}
+
+const char* Form::FormNotSignedException::what() const throw()
+{
+  return ("The form has not been signed\n");
+}
+
+void  Form::execute(const Bureaucrat& executor)
+{
+  if (mSigned == false)
+    throw(FormNotSignedException());
+  else if (executor.getGrade() > mExecLevel)
+    throw(GradeTooLowException());
+  else
+    this->SubExecute();
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& form)

@@ -31,6 +31,10 @@ class Form
     {
       virtual const char* what() const throw();
     };
+    class FormNotSignedException: public std::exception
+    {
+      virtual const char* what() const throw();
+    };
 };
 
 std::ostream& operator<<(std::ostream& out, const Form& form);

@@ -9,11 +9,11 @@ class ShrubberyCreationForm : public Form
   private:
     std::string mTarget;
   public:
-    explicit ShrubberyCreationForm(const std::string& target, int signLevel = 25, int execLevel = 5);
+    explicit ShrubberyCreationForm(const std::string& target, int signLevel = 145, int execLevel = 137);
     ShrubberyCreationForm(ShrubberyCreationForm& shrubberyCreationForm);
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& shrubberyCreationForm);
     virtual ~ShrubberyCreationForm();
-    virtual void execute(const Bureaucrat& executor);
+    virtual void SubExecute(void);
 };
 
 #endif

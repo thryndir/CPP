@@ -9,11 +9,11 @@ class RobotomyRequestForm : public Form
   private:
     std::string mTarget;
   public:
-    explicit RobotomyRequestForm(const std::string& target, int signLevel = 25, int execLevel = 5);
+    explicit RobotomyRequestForm(const std::string& target, int signLevel = 72, int execLevel = 45);
     RobotomyRequestForm(RobotomyRequestForm& robotomyRequestForm);
     RobotomyRequestForm& operator=(const RobotomyRequestForm& robotomyRequestForm);
     virtual ~RobotomyRequestForm();
-    virtual void execute(const Bureaucrat& executor);
+    virtual void SubExecute(void);
 };
 
 #endif

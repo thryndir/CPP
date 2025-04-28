@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include <exception>
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
   :mName(name)
