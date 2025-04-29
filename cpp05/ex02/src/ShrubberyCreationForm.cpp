@@ -6,14 +6,14 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target,
                                             int signLevel, int execLevel)
-  :Form(target, signLevel, execLevel)
+  :AForm(target, signLevel, execLevel)
   ,mTarget(target)
 {
   std::cout << "SCF " << mTarget << " constructor called\n";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& scf)
-  :Form(scf.mTarget, scf.getSignLevel(), scf.getExecLevel())
+  :AForm(scf.mTarget, scf.getSignLevel(), scf.getExecLevel())
   ,mTarget(scf.mTarget)
 {
   std::cout << "SCF " << mTarget << " copy constructor called\n";
@@ -26,7 +26,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=
   if (this == &scf)
     return (*this);
   mTarget = scf.mTarget;
-  Form::operator=(scf);
+  AForm::operator=(scf);
   return (*this);
 }
 
@@ -35,7 +35,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
   std::cout << "SCF " << mTarget << " destructor called\n";
 }
 
-void ShrubberyCreationForm::SubExecute()
+void ShrubberyCreationForm::subExecute() const
 {
   std::string out = mTarget + "_shrubbery";
   std::ofstream outfile(out.c_str());

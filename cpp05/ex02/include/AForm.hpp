@@ -4,7 +4,7 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
   private:
     const std::string mName;
@@ -12,17 +12,17 @@ class Form
     const int         mSignLevel;
     const int         mExecLevel;
   public:
-    Form(const std::string& name, int signLevel = -1, int execLevel = -1, bool approved = false);
-    Form(const Form& form);
-    Form& operator=(const Form& form);
-    virtual ~Form();
+    AForm(const std::string& name = "", int signLevel = -1, int execLevel = -1, bool approved = false);
+    AForm(const AForm& form);
+    AForm& operator=(const AForm& form);
+    virtual ~AForm();
     std::string   getName() const;
     bool          getSign() const;
     int           getSignLevel() const;
     int           getExecLevel() const;
     void          beSigned(const Bureaucrat& bureaucrat);
-    void          execute(const Bureaucrat& executor);
-    virtual void  SubExecute(void) = 0;
+    void          execute(const Bureaucrat& executor) const;
+    virtual void  subExecute(void) const = 0;
     class GradeTooHighException: public std::exception
     {
       virtual const char* what() const throw();
@@ -37,6 +37,6 @@ class Form
     };
 };
 
-std::ostream& operator<<(std::ostream& out, const Form& form);
+std::ostream& operator<<(std::ostream& out, const AForm& form);
 
 #endif

@@ -2,67 +2,67 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Form::Form(const std::string& name, int signLevel, int execLevel, bool approved)
+AForm::AForm(const std::string& name, int signLevel, int execLevel, bool approved)
   :mName(name)
   ,mSigned(approved)
   ,mSignLevel(signLevel)
   ,mExecLevel(execLevel)
 {
-  std::cout << "Form " << mName << " constructor called\n";
+  std::cout << "AForm " << mName << " constructor called\n";
   if (mSignLevel > 150 || mExecLevel > 150)
     throw (GradeTooHighException());
   else if (mSignLevel < 1 || mExecLevel < 1)
     throw (GradeTooLowException());
 }
 
-Form::Form(const Form& form)
+AForm::AForm(const AForm& form)
   :mName(form.mName)
   ,mSigned(form.mSigned)
   ,mSignLevel(form.mSignLevel)
   ,mExecLevel(form.mExecLevel)
 {
-  std::cout << "Form " << mName << " copy constructor called\n";
+  std::cout << "AForm " << mName << " copy constructor called\n";
   if (mSignLevel > 150 || mExecLevel > 150)
     throw (GradeTooHighException());
   else if (mSignLevel < 1 || mExecLevel < 1)
     throw (GradeTooLowException());
 }
 
-Form& Form::operator=(const Form& form)
+AForm& AForm::operator=(const AForm& form)
 {
-  std::cout << "Form " << mName << " copy assignation operator called\n";
+  std::cout << "AForm " << mName << " copy assignation operator called\n";
   if (this == &form)
     return (*this);
   this->mSigned = form.mSigned;
   return (*this);
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-  std::cout << "Form " << mName << " destructor called\n";
+  std::cout << "AForm " << mName << " destructor called\n";
 }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
   return (mName);
 }
 
-bool Form::getSign() const
+bool AForm::getSign() const
 {
   return (mSigned);
 }
 
-int Form::getSignLevel() const
+int AForm::getSignLevel() const
 {
   return (mSignLevel);
 }
 
-int Form::getExecLevel() const
+int AForm::getExecLevel() const
 {
   return (mExecLevel);
 }
 
-void Form::beSigned(const Bureaucrat& bureaucrat)
+void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
   if (bureaucrat.getGrade() <= mSignLevel
       && bureaucrat.getGrade() > 0 && mSignLevel <= 150)
@@ -71,32 +71,32 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
     throw (GradeTooLowException());
 }
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
   return ("Grade too high\n");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
   return ("Grade too low\n");
 }
 
-const char* Form::FormNotSignedException::what() const throw()
+const char* AForm::FormNotSignedException::what() const throw()
 {
   return ("The form has not been signed\n");
 }
 
-void  Form::execute(const Bureaucrat& executor)
+void  AForm::execute(const Bureaucrat& executor) const
 {
   if (mSigned == false)
     throw(FormNotSignedException());
   else if (executor.getGrade() > mExecLevel)
     throw(GradeTooLowException());
   else
-    this->SubExecute();
+    this->subExecute();
 }
 
-std::ostream& operator<<(std::ostream& out, const Form& form)
+std::ostream& operator<<(std::ostream& out, const AForm& form)
 {
   out << form.getName()
   << (form.getSign() == true ? " has been signed," : " has not been signed,")

@@ -5,14 +5,14 @@
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target,
                                             int signLevel, int execLevel)
-  :Form(target, signLevel, execLevel)
+  :AForm(target, signLevel, execLevel)
   ,mTarget(target)
 {
   std::cout << "PPF " << mTarget << " constructor called\n";
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& ppf)
-  :Form(ppf.mTarget, ppf.getSignLevel(), ppf.getExecLevel())
+  :AForm(ppf.mTarget, ppf.getSignLevel(), ppf.getExecLevel())
 {
   std::cout << "PPF " << mTarget << " copy constructor called\n";
 }
@@ -24,7 +24,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=
   if (this == &ppf)
     return (*this);
   mTarget = ppf.mTarget;
-  Form::operator=(ppf);
+  AForm::operator=(ppf);
   return (*this);
 }
 
@@ -33,7 +33,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
   std::cout << "PPF " << mTarget << " destructor called\n";
 }
 
-void PresidentialPardonForm::SubExecute()
+void PresidentialPardonForm::subExecute() const
 {
   std::cout << mTarget << " has been pardoned by Zaphod Beeblebrox\n";
 }

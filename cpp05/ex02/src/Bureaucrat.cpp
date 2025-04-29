@@ -73,7 +73,7 @@ void Bureaucrat::increaseGrade()
     throw (GradeTooLowException());
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(AForm& form)
 {
   try
   {
@@ -86,6 +86,20 @@ void Bureaucrat::signForm(Form& form)
     return ;
   }
   std::cout << mName << " signed " << form.getName() << "\n";
+}
+
+void  Bureaucrat::executeForm(const AForm& form)
+{
+  try
+  {
+    form.execute(*this);
+  }
+  catch (const std::exception& e)
+  {
+    std::cout << e.what();
+    return ;
+  }
+  std::cout << mName << " executed " << form.getName() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat)

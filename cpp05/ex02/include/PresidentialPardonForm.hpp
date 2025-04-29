@@ -4,16 +4,16 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
   private:
     std::string mTarget;
   public:
-    explicit PresidentialPardonForm(const std::string& target, int signLevel = 25, int execLevel = 5);
+    PresidentialPardonForm(const std::string& target = "", int signLevel = 25, int execLevel = 5);
     PresidentialPardonForm(PresidentialPardonForm& presidentialPardonForm);
     PresidentialPardonForm& operator=(const PresidentialPardonForm& presidentialPardonForm);
     virtual ~PresidentialPardonForm();
-    virtual void SubExecute(void);
+    virtual void subExecute(void) const;
 };
 
 #endif

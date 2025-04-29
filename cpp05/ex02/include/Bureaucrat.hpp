@@ -4,7 +4,7 @@
 #include <exception>
 #include <string>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -12,7 +12,7 @@ class Bureaucrat
     const std::string mName;
     int  mGrade;
   public:
-    Bureaucrat(const std::string& name, int grade = -1);
+    Bureaucrat(const std::string& name = "", int grade = -1);
     Bureaucrat(const Bureaucrat& bureaucrat);
     Bureaucrat& operator=(const Bureaucrat& bureaucrat);
     ~Bureaucrat();
@@ -20,7 +20,8 @@ class Bureaucrat
     int         getGrade(void) const;
     void        increaseGrade();
     void        decreaseGrade();
-    void        signForm(Form& form);
+    void        signForm(AForm& form);
+    void        executeForm(const AForm& form);
     class GradeTooHighException: public std::exception
     {
       virtual const char* what() const throw();

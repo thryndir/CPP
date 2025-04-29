@@ -11,7 +11,7 @@ class ClapTrap
     int          mEnergyPoints;
     int          mAttackDamage;
   public:
-    explicit ClapTrap(const std::string& name = "", int hPoints = 10
+    ClapTrap(const std::string& name = "", int hPoints = 10
       ,int ePoints = 10, int aDamgage = 0);
     ClapTrap(const ClapTrap& clapTrap);
     ClapTrap&  operator=(const ClapTrap& clapTrap);

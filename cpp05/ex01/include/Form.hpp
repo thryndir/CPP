@@ -12,7 +12,7 @@ class Form
     const int         mSignLevel;
     const int         mExecLevel;
   public:
-    Form(const std::string& name, int signLevel = -1, int execLevel = -1, bool approved = false);
+    Form(const std::string& name = "", int signLevel = -1, int execLevel = -1, bool approved = false);
     Form(const Form& form);
     Form& operator=(const Form& form);
     ~Form();

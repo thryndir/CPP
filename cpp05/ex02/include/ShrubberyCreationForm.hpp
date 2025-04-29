@@ -4,16 +4,16 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
   private:
     std::string mTarget;
   public:
-    explicit ShrubberyCreationForm(const std::string& target, int signLevel = 145, int execLevel = 137);
+    ShrubberyCreationForm(const std::string& target = "", int signLevel = 145, int execLevel = 137);
     ShrubberyCreationForm(ShrubberyCreationForm& shrubberyCreationForm);
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& shrubberyCreationForm);
     virtual ~ShrubberyCreationForm();
-    virtual void SubExecute(void);
+    virtual void subExecute(void) const;
 };
 
 #endif
