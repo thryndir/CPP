@@ -6,8 +6,11 @@
 class ScalarConvert
 {
   public:
-    void test(void);
-    virtual void convert(std::string litt) const = 0;
+    ScalarConvert();
+    ScalarConvert(ScalarConvert& scalarConvert);
+    ScalarConvert& operator=(const ScalarConvert& scalarConvert);
+    virtual ~ScalarConvert() = 0;
+    static void convert(const std::string& litt);
 };
 
 #endif
