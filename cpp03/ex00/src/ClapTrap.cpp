@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap(const std::string& name)
+ClapTrap::ClapTrap(const std::string& name, int hPoints, int ePoints, int aDamage)
   :mName(name)
-  ,mHitPoints(10)
-  ,mEnergyPoints(10)
-  ,mAttackDamage(0)
+  ,mHitPoints(hPoints)
+  ,mEnergyPoints(ePoints)
+  ,mAttackDamage(aDamage)
 {
-  std::cout << "(ClapTrap) construcor called\n";
+  std::cout << "(ClapTrap) constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& clapTrap)
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(const ClapTrap& clapTrap)
 
 ClapTrap&  ClapTrap::operator=(const ClapTrap& clapTrap)
 {
-  std::cout << "(ClapTrap) copy assignement operator called \n";
+  std::cout << "(ClapTrap) copy assignement operator called\n";
   if (this == &clapTrap)
     return (*this);
   mName = clapTrap.mName;
@@ -33,25 +33,72 @@ ClapTrap&  ClapTrap::operator=(const ClapTrap& clapTrap)
 
 ClapTrap::~ClapTrap()
 {
-  std::cout << "ClapTrap destroyed\n";
+  std::cout << "(ClapTrap) destructor called\n";
 }
 
 void  ClapTrap::attack(const std::string& target)
 {
   if (mEnergyPoints && mHitPoints)
-    std::cout << "ClapTrap " << mName << " attacks " <<
+  {
+    std::cout << "(ClapTrap) " << mName << " attacks " <<
       target << " causing " << mAttackDamage << " points of damage !" << '\n';
+    setEpoints(getEpoints()-1);
+  }
 }
 
 void  ClapTrap::takeDamage(unsigned int amount)
 {
-  std::cout << "ClapTrap " << mName << " has taken " <<
+  setHpoints(getHpoints() - amount);
+  std::cout << mName << " has taken " <<
     amount << " points of damage!" << '\n';
 }
 
 void  ClapTrap::beRepaired(unsigned int amount)
 {
   if (mEnergyPoints && mHitPoints)
-    std::cout << "ClapTrap " << mName << " is being repaired by " <<
+  {
+    std::cout << mName << " is being repaired by " <<
       amount << " points !" << '\n';
+    setEpoints(getEpoints()-1);
+  }
+}
+
+const  std::string& ClapTrap::getName(void) const
+{
+  return (mName);
+}
+
+int  ClapTrap::getHpoints(void) const
+{
+  return (mHitPoints);
+}
+
+int  ClapTrap::getEpoints(void) const
+{
+  return (mEnergyPoints);
+}
+
+int  ClapTrap::getAdamage(void) const
+{
+  return (mAttackDamage);
+}
+
+void  ClapTrap::setName(const std::string& name)
+{
+  mName = name;
+}
+
+void  ClapTrap::setHpoints(const int hPoints)
+{
+  mHitPoints = hPoints;
+}
+
+void  ClapTrap::setEpoints(const int ePoints)
+{
+  mEnergyPoints = ePoints;
+}
+
+void  ClapTrap::setAdamage(const int aDamage)
+{
+  mAttackDamage = aDamage;
 }
