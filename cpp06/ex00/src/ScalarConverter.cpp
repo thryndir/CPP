@@ -10,7 +10,7 @@
 ScalarConvert::ScalarConvert()
 {}
 
-ScalarConvert::ScalarConvert(ScalarConvert& scalarConvert)
+ScalarConvert::ScalarConvert(const ScalarConvert& scalarConvert)
 {
   (void)scalarConvert;
 }
