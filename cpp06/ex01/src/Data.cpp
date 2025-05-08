@@ -4,18 +4,18 @@
 Data::Data(const std::string& type)
   :mType(type)
 {
-  std::cout << "Data " << mType << "constructor called\n";
+  std::cout << "Data " << mType << " constructor called\n";
 }
 
 Data::Data(const Data& data)
   :mType(data.mType)
 {
-  std::cout << "Data " << mType << "copy constructor called\n";
+  std::cout << "Data " << mType << " copy constructor called\n";
 }
 
 Data& Data::operator=(const Data& data)
 {
-  std::cout << "Data " << mType << "copy operator called\n";
+  std::cout << "Data " << mType << " copy operator called\n";
   if (this == &data)
     return (*this);
   mType = data.mType;
@@ -24,5 +24,5 @@ Data& Data::operator=(const Data& data)
 
 Data::~Data()
 {
-  std::cout << "Data " << mType << "destructor called\n";
+  std::cout << "Data " << mType << " destructor called\n";
 }
