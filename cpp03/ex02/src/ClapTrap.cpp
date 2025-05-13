@@ -44,13 +44,20 @@ void  ClapTrap::attack(const std::string& target)
       target << " causing " << mAttackDamage << " points of damage !" << '\n';
     setEpoints(getEpoints()-1);
   }
+  else
+    std::cout << mName << " can't attack" << std::endl;
 }
 
 void  ClapTrap::takeDamage(unsigned int amount)
 {
-  setHpoints(getHpoints() - amount);
-  std::cout << mName << " has taken " <<
-    amount << " points of damage!" << '\n';
+  if (mEnergyPoints && mHitPoints)
+  {
+    setHpoints(getHpoints() - amount);
+    std::cout << mName << " has taken " <<
+      amount << " points of damage!" << '\n';
+  }
+  else
+    std::cout << mName << " can't take damage" << std::endl;
 }
 
 void  ClapTrap::beRepaired(unsigned int amount)
@@ -60,7 +67,10 @@ void  ClapTrap::beRepaired(unsigned int amount)
     std::cout << mName << " is being repaired by " <<
       amount << " points !" << '\n';
     setEpoints(getEpoints()-1);
+    setHpoints(getHpoints() + amount);
   }
+  else
+    std::cout << mName << " can't be repaired" << std::endl;
 }
 
 const  std::string& ClapTrap::getName(void) const
