@@ -1,6 +1,7 @@
 #ifndef ITER_HPP
 #define ITER_HPP
 
+#include <cstddef>
 #include <iostream>
 
 template <typename T>
@@ -16,28 +17,30 @@ void multiply(T& array)
 }
 
 template <typename T>
-void display(T& array, const std::string& name)
+void display(const T& array, const std::string& name)
 {
   std::cout << name << " " << array << std::endl;
 }
 
 template <typename T>
-void iter(T* array, T size, const std::string& name)
+void iter(T* array, size_t size, const std::string& name)
 {
-  for (T i = 0; i < size; i++)
-  {
+  for (size_t i = 0; i < size; i++)
     display(array[i], name);
-  }
 }
 
+template <typename T>
+void iter(const T* array, size_t size, void (*func)(T& array))
+{
+  for (size_t i = 0; i < size; i++)
+    func(array[i]);
+}
 
 template <typename T>
-void iter(T* array, T size, void (*func)(T& array))
+void iter(T* array, size_t size, void (*func)(T& array))
 {
-  for (T i = 0; i < size; i++)
-  {
+  for (size_t i = 0; i < size; i++)
     func(array[i]);
-  }
 }
 
 #endif
