@@ -1,24 +1,46 @@
 #include <iostream>
 #include <vector>
-#include <list>
-#include "easyfind.hpp"
+#include <stdlib.h>
+#include "Span.hpp"
+
+void printVector(std::vector<int>::iterator start, std::vector<int>::iterator end, const std::string& name)
+{
+  std::cout << name << std::endl;
+  while (start != end)
+  {
+    std::cout << *start << " ";
+    start++;
+  }
+  std::cout << "\n\n\n";
+}
+
+void fillVector(std::vector<int>& vec)
+{
+  std::vector<int>::iterator it = vec.begin();
+  while (it != vec.end())
+  {
+    *it = abs(rand() % 100);
+    it++;
+  }
+}
 
 int main( void )
 {
   try
   {
-    std::vector<int> vector;
-    vector.reserve(5);
-    for (int i = 1; i <= 5; ++i)
-      vector.push_back(i);
-    std::cout << "vector " << easyfind(vector, 32) << " has been found\n";
-    std::list<int> list;
-    list.push_back(8);
-    list.push_front(2);
-    list.push_front(3);
-    list.push_front(4);
-    list.push_front(1);
-    std::cout << "list "<< easyfind(list, 32) << " has been found\n";
+    srand(time(NULL));
+    Span span1(10);
+    Span span2(1);
+    span2.addNumber(8);
+    std::vector<int> vec(10);
+    fillVector(vec);
+    printVector(vec.begin(), vec.end(), "vec");
+    span1.addSequence(vec.begin(), vec.end());
+    printVector(span1.getArray().begin(), span1.getArray().end(), "span1");
+    std::cout << "longest span is: " << span1.longestSpan() << std::endl;
+    std::cout << "shortest span is: " << span1.shortestSpan() << std::endl;
+    std::cout << span2.longestSpan() << std::endl;
+    std::cout << span2.shortestSpan() << std::endl;
   }
   catch (const std::exception& e)
   {
