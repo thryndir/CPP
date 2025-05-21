@@ -6,7 +6,7 @@
 class Animal
 {
   protected:
-    std::string mType;
+    std::string _type;
   public:
     Animal(std::string type = "");
     Animal(const Animal& animal);

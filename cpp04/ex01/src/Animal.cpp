@@ -2,13 +2,13 @@
 #include <iostream>
 
 Animal::Animal(std::string type)
-  :mType(type)
+  :_type(type)
 {
   std::cout << "animal constructor called\n";
 }
 
 Animal::Animal(const Animal& animal)
-  :mType(animal.mType)
+  :_type(animal._type)
 {
   std::cout << "animal copy constructor called\n";
 }
@@ -22,13 +22,13 @@ Animal& Animal::operator=(const Animal& animal)
 {
   if (this == &animal)
     return (*this);
-  mType = animal.mType;
+  _type = animal._type;
   return (*this);
 }
 
 std::string Animal::getType() const
 {
-  return (mType);
+  return (_type);
 }
 
 void  Animal::makeSound() const
