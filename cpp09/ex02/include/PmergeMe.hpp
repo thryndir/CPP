@@ -11,8 +11,7 @@ template <typename T>
 void createWinners(std::vector<std::pair<long, long> >& pairs, T& winners, bool first);
 template <typename T>
 void createLosers(std::vector<std::pair<long, long> >& pairs, T& losers, bool first);
-template <typename T>
-void binaryInsert(T& winners, long loser);
+std::ostream& operator<<(std::ostream& os, const std::vector<long>& vector);
 
 class PmergeMe
 {

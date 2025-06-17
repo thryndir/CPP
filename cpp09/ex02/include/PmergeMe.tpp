@@ -1,4 +1,3 @@
-#include <algorithm>
 #define PMERGEME_TPP_INCLUDED
 #include "PmergeMe.hpp"
 
@@ -27,23 +26,6 @@ void createLosers(std::vector<std::pair<long, long> >& pairs, T& losers, bool fi
             losers.push_back(it->second);
         it++;
     }
-}
-
-template <typename T>
-void binaryInsert(T& winners, long loser)
-{
-    int left = 0;
-    int right = winners.size();
-
-    while (left < right)
-    {
-        int mid = (left + right) / 2;
-        if (winners[mid] < loser)
-            left = mid + 1;
-        else
-            right = mid;
-    }
-    winners.insert(winners.begin() + left, loser);
 }
 
 template <typename T>

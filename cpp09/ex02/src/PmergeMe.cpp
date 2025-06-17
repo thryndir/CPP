@@ -3,6 +3,20 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <algorithm>
+#include <set>
+
+std::ostream& operator<<(std::ostream& os, const std::vector<long>& vector)
+{
+    for (std::vector<long>::const_iterator it = vector.begin(); it != vector.end(); it++)
+    {
+        if (it + 1 != vector.end())
+            os << *it << " ";
+        else
+            os << *it;
+    }
+  return (os);
+}
 
 template <typename T>
 T	strToNbr(const std::string& str)
@@ -102,6 +116,12 @@ PmergeMe::PmergeMe(const std::string& input)
 		_deque.push_back(strToNbr<long>(input.substr(pos, len)));
 		pos += len;
 	}
+	std::set<long> seen;
+  for (std::vector<long>::const_iterator it = _vector.begin(); it != _vector.end(); ++it)
+  {
+    if (!seen.insert(*it).second)
+        throw std::invalid_argument("doubled number detected");
+  }
 }
 
 PmergeMe::PmergeMe(const PmergeMe& pmergeMe)
