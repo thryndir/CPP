@@ -11,6 +11,7 @@ class AForm
     bool              mSigned;
     const int         mSignLevel;
     const int         mExecLevel;
+    virtual void  subExecute(void) const = 0;
   public:
     AForm(const std::string& name = "", int signLevel = -1, int execLevel = -1, bool approved = false);
     AForm(const AForm& form);
@@ -22,7 +23,6 @@ class AForm
     int           getExecLevel() const;
     void          beSigned(const Bureaucrat& bureaucrat);
     void          execute(const Bureaucrat& executor) const;
-    virtual void  subExecute(void) const = 0;
     class GradeTooHighException: public std::exception
     {
       virtual const char* what() const throw();

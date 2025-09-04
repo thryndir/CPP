@@ -8,12 +8,12 @@ class RobotomyRequestForm : public AForm
 {
   private:
     std::string mTarget;
+    virtual void subExecute(void) const;
   public:
     RobotomyRequestForm(const std::string& target = "", int signLevel = 72, int execLevel = 45);
     RobotomyRequestForm(RobotomyRequestForm& robotomyRequestForm);
     RobotomyRequestForm& operator=(const RobotomyRequestForm& robotomyRequestForm);
     virtual ~RobotomyRequestForm();
-    virtual void subExecute(void) const;
 };
 
 #endif

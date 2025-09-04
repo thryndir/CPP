@@ -8,7 +8,9 @@ int main()
   {
     Bureaucrat Michel("Michel", 149);
     Bureaucrat Laure("Laure", 4);
-    Michel = Laure;
+    // Michel = Laure;
+    Michel.decreaseGrade();
+    Michel.decreaseGrade();
     Michel.increaseGrade();
     Michel.decreaseGrade();
     Michel.increaseGrade();

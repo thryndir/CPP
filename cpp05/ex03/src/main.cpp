@@ -13,7 +13,6 @@ int main()
     Intern someRandomIntern;
     AForm* rrf;
     rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
-    rrf->subExecute();
     delete rrf;
     ShrubberyCreationForm tree("tree");
     PresidentialPardonForm president("president");

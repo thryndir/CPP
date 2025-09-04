@@ -8,12 +8,12 @@ class ShrubberyCreationForm : public AForm
 {
   private:
     std::string mTarget;
+    virtual void subExecute(void) const;
   public:
     ShrubberyCreationForm(const std::string& target = "", int signLevel = 145, int execLevel = 137);
     ShrubberyCreationForm(ShrubberyCreationForm& shrubberyCreationForm);
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& shrubberyCreationForm);
     virtual ~ShrubberyCreationForm();
-    virtual void subExecute(void) const;
 };
 
 #endif
