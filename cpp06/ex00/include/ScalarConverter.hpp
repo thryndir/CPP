@@ -7,7 +7,7 @@ class ScalarConvert
 {
   public:
     ScalarConvert();
-    ScalarConvert(ScalarConvert& scalarConvert);
+    ScalarConvert(const ScalarConvert& scalarConvert);
     ScalarConvert& operator=(const ScalarConvert& scalarConvert);
     virtual ~ScalarConvert() = 0;
     static void convert(const std::string& litt);
