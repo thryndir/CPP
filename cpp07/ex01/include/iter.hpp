@@ -30,7 +30,7 @@ void iter(T* array, size_t size, const std::string& name)
 }
 
 template <typename T>
-void iter(const T* array, size_t size, void (*func)(T& array))
+void iter(const T* array, size_t size, void (*func)(const T& array))
 {
   for (size_t i = 0; i < size; i++)
     func(array[i]);
