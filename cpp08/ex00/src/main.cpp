@@ -8,10 +8,9 @@ int main( void )
   try
   {
     std::vector<int> vector;
-    vector.reserve(5);
     for (int i = 1; i <= 5; ++i)
       vector.push_back(i);
-    std::cout << "vector " << easyfind(vector, 32) << " has been found\n";
+    std::cout << "vector " << easyfind(vector, 3) << " has been found\n";
     std::list<int> list;
     list.push_back(8);
     list.push_front(2);

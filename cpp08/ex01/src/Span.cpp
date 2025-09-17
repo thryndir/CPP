@@ -59,7 +59,7 @@ unsigned int Span::shortestSpan(void)
 unsigned int Span::longestSpan(void)
 {
   if (_array.size() < 2)
-    throw (std::runtime_error("shortest span cannot be found\n"));
+    throw (std::runtime_error("longest span cannot be found\n"));
   std::vector<int> temp = _array;
   std::sort(temp.begin(), temp.end());
   return (std::abs(*temp.begin() - temp[temp.size() - 1]));

@@ -8,7 +8,7 @@ class Span
     unsigned int _N;
     std::vector<int> _array;
   public:
-    Span(int span = 0);
+    Span(int N = 0);
     Span(const Span& span);
     Span& operator=(const Span& span);
     ~Span();
